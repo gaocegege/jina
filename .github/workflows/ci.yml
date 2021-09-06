@@ -342,6 +342,7 @@ jobs:
       - name: Test
         id: test
         run: |
+          eval "$(docker-machine env default)"
           pytest --suppress-no-test-exit-code --force-flaky --min-passes 1 --max-runs 5 --timeout=360 -v -s tests/unit/peapods/runtimes
         timeout-minutes: 20
 
