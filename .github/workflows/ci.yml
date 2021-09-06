@@ -332,6 +332,7 @@ jobs:
           docker-machine env default
       - name: Prepare enviroment
         run: |
+          eval "$(docker-machine env default)"
           docker build -f Dockerfiles/pip.Dockerfile -t jinaai/jina:test-pip .
           python -m pip install --upgrade pip
           python -m pip install wheel
